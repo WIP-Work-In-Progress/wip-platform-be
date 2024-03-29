@@ -1,0 +1,26 @@
+version: "3"
+services:
+  wip-be:
+    image: wip-be
+    ports:
+      - "8080:8080"
+    networks:
+      - bridge
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=wip-admin
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    restart: always
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - $HOME/mongodb/wip-be-data:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=wip-admin
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    networks:
+      - bridge
+    restart: always
+networks:
+  bridge:
