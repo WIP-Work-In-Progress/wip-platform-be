@@ -6,9 +6,6 @@ services:
       - "8080:8080"
     networks:
       - bridge
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=wip-admin
-      - MONGO_INITDB_ROOT_PASSWORD=password
     restart: always
   mongodb:
     image: mongo:latest
@@ -16,9 +13,9 @@ services:
       - "27017:27017"
     volumes:
       - $HOME/mongodb/wip-be-data:/data/db
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=wip-admin
-      - MONGO_INITDB_ROOT_PASSWORD=password
+#    environment:
+#      - MONGO_INITDB_ROOT_USERNAME=root
+#      - MONGO_INITDB_ROOT_PASSWORD=pass
     networks:
       - bridge
     restart: always
