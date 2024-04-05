@@ -1,8 +1,6 @@
 package pl.wip.wipplatformbe.controllers;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.wip.wipplatformbe.models.Test;
 import pl.wip.wipplatformbe.requests.TestRequest;
 import pl.wip.wipplatformbe.services.TestService;
@@ -29,7 +27,17 @@ public class HelloController {
     }
 
     @PostMapping("/test")
-    void saveTest(TestRequest test) {
+    void saveTest(@RequestBody TestRequest test) {
         testService.saveTest(test);
+    }
+
+    @DeleteMapping("/test/{id}")
+    void deleteTest(@PathVariable String id) {
+        testService.deleteTest(id);
+    }
+
+    @PatchMapping("/test/{id}")
+    void updateTest(@PathVariable String id, TestRequest test) {
+        testService.updateTest(id, test);
     }
 }

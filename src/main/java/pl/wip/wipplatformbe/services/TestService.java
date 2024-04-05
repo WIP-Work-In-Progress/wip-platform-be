@@ -24,6 +24,17 @@ public class TestService {
         test.setName(testRequest.name());
         testRepository.save(test);
     }
+
+    public void deleteTest(String id) {
+        testRepository.deleteById(id);
+    }
+
+    public void updateTest(String id, TestRequest testRequest) {
+        Test test = testRepository.findById(id).orElseThrow();
+        test.setName(testRequest.name());
+        testRepository.save(test);
+    }
+
 }
 
 
