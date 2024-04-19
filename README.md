@@ -20,6 +20,8 @@ More on SOLID: https://wearecommunity.io/communities/epam-poland/articles/1190
 
 More on how to keep the code clean: https://gist.github.com/wojteklu/73c6914cc446146b8b533c0988cf8d29
 
+**Follow the UML diagrams from Miro, in case of missing features contact people in charge of the project/backend.**
+
 ## Contributing
 	
 If you want to contribute, we require that you abide by the following conventions:
