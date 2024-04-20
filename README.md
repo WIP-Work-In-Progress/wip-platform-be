@@ -22,6 +22,13 @@ More on how to keep the code clean: https://gist.github.com/wojteklu/73c6914cc44
 
 **Follow the UML diagrams from Miro, in case of missing features contact people in charge of the project/backend.**
 
+## Project Structure
+
+We use the following project structure
+
+![image](https://github.com/WIP-Work-In-Progress/wip-platform-be/assets/116646363/5010d8c3-0528-426f-9166-057902cb251a)
+
+
 ## Contributing
 	
 If you want to contribute, we require that you abide by the following conventions:
