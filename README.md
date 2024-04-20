@@ -24,10 +24,9 @@ More on how to keep the code clean: https://gist.github.com/wojteklu/73c6914cc44
 
 ## Project Structure
 
-We use the following project structure
+We use the following project structure:
 
-![image](https://github.com/WIP-Work-In-Progress/wip-platform-be/assets/116646363/5010d8c3-0528-426f-9166-057902cb251a)
-
+![Project structure](https://github.com/WIP-Work-In-Progress/wip-platform-be/assets/116646363/90ff3734-8938-46a3-8000-f20eeaaceaab)
 
 ## Contributing
 	
