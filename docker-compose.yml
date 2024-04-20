@@ -2,22 +2,27 @@ version: "3"
 services:
   wip-be:
     image: wip-be
+    build: .
     ports:
       - "8080:8080"
     networks:
-      - bridge
+      - internal
     restart: always
   mongodb:
-    image: mongo:latest
+    image: mongo:7.0.8
     ports:
       - "27017:27017"
     volumes:
       - $HOME/mongodb/wip-be-data:/data/db
-#    environment:
-#      - MONGO_INITDB_ROOT_USERNAME=root
-#      - MONGO_INITDB_ROOT_PASSWORD=pass
     networks:
-      - bridge
+      - internal
+    restart: always
+  redis:
+    image: redis:7.2.4
+    ports:
+      - "6380:6380"
+    networks:
+      - internal
     restart: always
 networks:
-  bridge:
+  internal:

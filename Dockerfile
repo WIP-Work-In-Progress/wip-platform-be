@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN ["mvn", "clean", "build"]
+RUN ["mvn", "package"]
 
 FROM openjdk:21-jdk
 
