@@ -12,7 +12,7 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - "%HOME%/mongodb/wip-be-data:/data/db"
+      - C:/mongodb/wip-be-data:/data/db
     networks:
       - internal
     restart: always

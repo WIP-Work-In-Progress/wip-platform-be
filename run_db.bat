@@ -7,7 +7,7 @@ docker ps -a | findstr /C:"%mongodb%" > nul
 if %errorlevel% equ 0 (
     echo Container %mongodb% is already running!
 ) else (
-    docker run --rm -d --name %mongodb% -p 27017:27017 -v %HOME%/mongodb/wip-be-data:/data/db mongo:7.0.8
+    docker run --rm -d --name %mongodb% -p 27017:27017 -v C:/mongodb/wip-be-data:/data/db mongo:7.0.8
 )
 
 docker ps -a | findstr /C:"%redis%" > nul

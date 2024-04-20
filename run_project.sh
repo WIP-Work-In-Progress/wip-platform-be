@@ -1,2 +1,1 @@
-docker build -t wip-be .
-docker compose up
+docker compose up --build
