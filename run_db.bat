@@ -14,6 +14,6 @@ docker ps -a | findstr /C:"%redis%" > nul
 if %errorlevel% equ 0 (
     echo Container %redis% is already running!
 ) else (
-    docker run --rm -d --name %redis% -p 6380:6380 redis:7.2.4
+    docker run --rm -d --name %redis% -p 6379:6379 redis:7.2.4
 )
 

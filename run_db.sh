@@ -9,5 +9,5 @@ fi
 if [ "$(docker ps -a | grep -w $redis)" != "" ]; then
 	echo "Container $redis is already running!"
 else
-	docker run --rm -d --name redis_wip -p 6380:6380 redis:7.2.4
+	docker run --rm -d --name redis_wip -p 6379:6379 redis:7.2.4
 fi
