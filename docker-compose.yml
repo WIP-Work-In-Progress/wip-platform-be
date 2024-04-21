@@ -3,6 +3,8 @@ services:
   wip-be:
     image: wip-be
     build: .
+    environment:
+      - JWT_SECRET_KEY=${WIP_BE_JWT_SECRET_KEY}
     ports:
       - "8080:8080"
     networks:
