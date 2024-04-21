@@ -18,7 +18,7 @@ public class AuthenticationService {
     }
 
     public User createUser(RegisterRequest userRequest) {
-        User user = new User(userRequest.getUsername(), passwordEncoder.encode(userRequest.getUsername()));
+        User user = new User(userRequest.getUsername(), passwordEncoder.encode(userRequest.getPassword()));
         userRepository.save(user);
         return user;
     }
