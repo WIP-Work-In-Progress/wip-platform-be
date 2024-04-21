@@ -1,10 +1,9 @@
 package pl.wip.wipplatformbe.services;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import pl.wip.wipplatformbe.models.User;
 import pl.wip.wipplatformbe.repositories.UserRepository;
-import pl.wip.wipplatformbe.requests.RegisterRequest;
-import pl.wip.wipplatformbe.utils.SecurityUtils;
 
 import java.util.Optional;
 
@@ -22,14 +21,5 @@ public class UserService {
     
     public boolean usernameExists(String username) {
         return userRepository.existsByUsername(username);
-    }
-
-    public User createUser(RegisterRequest userRequest) {
-        byte[] passwordSalt = SecurityUtils.generateSalt();
-        String passwordHash = SecurityUtils.hashPassword(userRequest.getPassword(), passwordSalt);
-        
-        User user = new User(userRequest.getUsername(), userRequest.getPassword());
-        userRepository.save(user);
-        return user;
     }
 }
