@@ -1,5 +1,6 @@
 package pl.wip.wipplatformbe.controllers;
 
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -31,7 +32,7 @@ public class AuthenticationController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<AuthenticationResponse> register(@RequestBody RegisterRequest registerRequest) {
+    public ResponseEntity<AuthenticationResponse> register(@Valid @RequestBody RegisterRequest registerRequest) {
         if (userService.usernameExists(registerRequest.getUsername()))
             return badRequestResponse();
         
@@ -48,7 +49,7 @@ public class AuthenticationController {
     }   
     
     @PostMapping("/login")
-    public ResponseEntity<AuthenticationResponse> login(@RequestBody LoginRequest loginRequest) {
+    public ResponseEntity<AuthenticationResponse> login(@Valid @RequestBody LoginRequest loginRequest) {
         Optional<User> user = authenticationService.checkPassword(loginRequest);
         
         if (user.isEmpty())
