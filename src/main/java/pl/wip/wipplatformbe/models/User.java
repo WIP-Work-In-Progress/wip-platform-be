@@ -4,6 +4,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import pl.wip.wipplatformbe.enums.Role;
 
 import java.util.Collection;
 import java.util.Date;
@@ -18,12 +19,14 @@ public class User implements UserDetails {
     private String username;
     private String firstName;
     private String lastName;
+    private List<Role> roles;
     private Date createdAt;
     
     public User(String username, String email, String password) {
         this.username = username;
         this.email = email;
         this.password = password;
+        this.roles = List.of(Role.USER);
     }
 
     public String getId() {
@@ -32,7 +35,7 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of();
+        return roles;
     }
 
     @Override
