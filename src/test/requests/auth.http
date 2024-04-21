@@ -20,7 +20,7 @@ Content-Type: application/json
 
 GET http://localhost:8080/test/auth/required
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0IiwiaWF0IjoxNzEzNzA1NjIxLCJleHAiOjE3MTM3MDkyMjF9.yLcsYLeqslD6tWUOAbqHFeQSD6JnD8f9gOZkGVG5V2A
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0IiwiaWF0IjoxNzEzNzA2MTAwLCJleHAiOjE3MTM3MDk3MDB9.tF1IfJW4OZd4AA0wSd0eN6rp4KlTiTbqE3PUNitdJVo
 
 ###
 
@@ -29,4 +29,4 @@ GET http://localhost:8080/test/auth/optional
 ###
 
 GET http://localhost:8080/test/auth/optional
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0IiwiaWF0IjoxNzEzNzA1NjIxLCJleHAiOjE3MTM3MDkyMjF9.yLcsYLeqslD6tWUOAbqHFeQSD6JnD8f9gOZkGVG5V2A
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0IiwiaWF0IjoxNzEzNzA2MTAwLCJleHAiOjE3MTM3MDk3MDB9.tF1IfJW4OZd4AA0wSd0eN6rp4KlTiTbqE3PUNitdJVo
