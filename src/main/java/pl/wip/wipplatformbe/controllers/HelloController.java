@@ -56,4 +56,14 @@ public class HelloController {
         String responseMessage = "User logged in, username: " + authentication.getName();
         return ResponseEntity.ok(responseMessage);
     }
+    
+    @GetMapping("/test/auth/admin")
+    public ResponseEntity<String> testAdmin() {
+        return ResponseEntity.ok("This should not appear, as there is no way to create admins as of yet");
+    }
+    
+    @GetMapping("/test/auth/user")
+    public ResponseEntity<String> testUser() {
+        return ResponseEntity.ok("This should appear only if user is logged in and has USER role");
+    }
 }
