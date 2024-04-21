@@ -35,9 +35,15 @@ public class AuthenticationController {
         if (userService.usernameExists(registerRequest.getUsername()))
             return badRequestResponse();
         
+        if (userService.emailExists(registerRequest.getEmail()))
+            return badRequestResponse();
+        
         User registeredUser = authenticationService.createUser(registerRequest);
         String token = jwtService.generateToken(registeredUser);
-        AuthenticationResponse authenticationResponse = new AuthenticationResponse(registeredUser.getUsername(), token);
+        
+        AuthenticationResponse authenticationResponse = new AuthenticationResponse(registeredUser.getUsername(),
+                registeredUser.getEmail(), token);
+        
         return ResponseEntity.ok(authenticationResponse);
     }   
     
@@ -49,10 +55,13 @@ public class AuthenticationController {
             return badRequestResponse();
             
         String token = jwtService.generateToken(user.get());
-        AuthenticationResponse authenticationResponse = new AuthenticationResponse(user.get().getUsername(), token);
+        AuthenticationResponse authenticationResponse = new AuthenticationResponse(user.get().getUsername(),
+                user.get().getEmail(), token);
+        
         return ResponseEntity.ok(authenticationResponse);
     }
     
+    // TODO: Add messages to Bad Request response
     private ResponseEntity badRequestResponse() {
         return ResponseEntity.badRequest().build();
     }

@@ -1,6 +1,5 @@
 package pl.wip.wipplatformbe.services;
 
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import pl.wip.wipplatformbe.models.User;
 import pl.wip.wipplatformbe.repositories.UserRepository;
@@ -21,5 +20,9 @@ public class UserService {
     
     public boolean usernameExists(String username) {
         return userRepository.existsByUsername(username);
+    }
+    
+    public boolean emailExists(String email) {
+        return userRepository.existsByEmail(email);
     }
 }

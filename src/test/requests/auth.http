@@ -3,6 +3,7 @@ Content-Type: application/json
 
 {
   "username": "Test",
+  "email": "test@email.com",
   "password": "Pa$$w0rd"
 }
 
@@ -12,7 +13,7 @@ POST http://localhost:8080/auth/login
 Content-Type: application/json
 
 {
-  "username": "Test",
+  "email": "test@email.com",
   "password": "Pa$$w0rd"
 }
 
@@ -20,7 +21,7 @@ Content-Type: application/json
 
 GET http://localhost:8080/test/auth/required
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0IiwiaWF0IjoxNzEzNzA2MTAwLCJleHAiOjE3MTM3MDk3MDB9.tF1IfJW4OZd4AA0wSd0eN6rp4KlTiTbqE3PUNitdJVo
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0IiwiaWF0IjoxNzEzNzA4MTYzLCJleHAiOjE3MTM3MTE3NjN9.JELtult5nPd2uAEFmi9Nwo_x1ywMv8IEfmj3c49icpk
 
 ###
 
@@ -29,4 +30,4 @@ GET http://localhost:8080/test/auth/optional
 ###
 
 GET http://localhost:8080/test/auth/optional
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0IiwiaWF0IjoxNzEzNzA2MTAwLCJleHAiOjE3MTM3MDk3MDB9.tF1IfJW4OZd4AA0wSd0eN6rp4KlTiTbqE3PUNitdJVo
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0IiwiaWF0IjoxNzEzNzA4MTYzLCJleHAiOjE3MTM3MTE3NjN9.JELtult5nPd2uAEFmi9Nwo_x1ywMv8IEfmj3c49icpk

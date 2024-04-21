@@ -21,13 +21,15 @@ public class AuthenticationService {
     }
 
     public User createUser(RegisterRequest userRequest) {
-        User user = new User(userRequest.getUsername(), passwordEncoder.encode(userRequest.getPassword()));
+        User user = new User(userRequest.getUsername(), userRequest.getEmail(),
+                passwordEncoder.encode(userRequest.getPassword()));
+        
         userRepository.save(user);
         return user;
     }
 
     public Optional<User> checkPassword(LoginRequest loginRequest) {
-        Optional<User> user = userRepository.findByUsername(loginRequest.getUsername());
+        Optional<User> user = userRepository.findByEmail(loginRequest.getEmail());
         
         if (user.isPresent() && !passwordEncoder.matches(loginRequest.getPassword(), user.get().getPassword()))
             return Optional.empty();
