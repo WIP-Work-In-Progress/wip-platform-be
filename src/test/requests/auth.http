@@ -1,0 +1,43 @@
+POST http://localhost:8080/auth/register
+Content-Type: application/json
+
+{
+  "username": "Test",
+  "email": "test@email.com",
+  "password": "Pa$$w0rd"
+}
+
+###
+
+POST http://localhost:8080/auth/login
+Content-Type: application/json
+
+{
+  "email": "test@email.com",
+  "password": "Pa$$w0rd"
+}
+
+###
+
+GET http://localhost:8080/test/auth/required
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoiVGVzdCIsImlhdCI6MTcxMzcwOTk1MCwiZXhwIjoxNzEzNzEzNTUwfQ.M9u1ygzCJRI0bzjCGPg245Iqpurxta7R5Lrdnf9EAaQ
+
+###
+
+GET http://localhost:8080/test/auth/optional
+
+###
+
+GET http://localhost:8080/test/auth/optional
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoiVGVzdCIsImlhdCI6MTcxMzcwOTk1MCwiZXhwIjoxNzEzNzEzNTUwfQ.M9u1ygzCJRI0bzjCGPg245Iqpurxta7R5Lrdnf9EAaQ
+
+###
+
+GET http://localhost:8080/test/auth/admin
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoiVGVzdCIsImlhdCI6MTcxMzcwOTk1MCwiZXhwIjoxNzEzNzEzNTUwfQ.M9u1ygzCJRI0bzjCGPg245Iqpurxta7R5Lrdnf9EAaQ
+
+###
+
+GET http://localhost:8080/test/auth/user
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoiVGVzdCIsImlhdCI6MTcxMzcwOTk1MCwiZXhwIjoxNzEzNzEzNTUwfQ.M9u1ygzCJRI0bzjCGPg245Iqpurxta7R5Lrdnf9EAaQ
