@@ -6,11 +6,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.wip.wipplatformbe.models.User;
+import pl.wip.wipplatformbe.requests.LoginRequest;
 import pl.wip.wipplatformbe.requests.RegisterRequest;
-import pl.wip.wipplatformbe.responses.RegisterResponse;
+import pl.wip.wipplatformbe.responses.AuthenticationResponse;
 import pl.wip.wipplatformbe.services.AuthenticationService;
 import pl.wip.wipplatformbe.services.JwtService;
 import pl.wip.wipplatformbe.services.UserService;
+
+import java.util.Optional;
 
 @RequestMapping("/auth")
 @RestController
@@ -28,13 +31,29 @@ public class AuthenticationController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<RegisterResponse> register(@RequestBody RegisterRequest registerUserDto) {
-        if (userService.usernameExists(registerUserDto.getUsername()))
-            return ResponseEntity.badRequest().build();
+    public ResponseEntity<AuthenticationResponse> register(@RequestBody RegisterRequest registerRequest) {
+        if (userService.usernameExists(registerRequest.getUsername()))
+            return badRequestResponse();
         
-        User registeredUser = authenticationService.createUser(registerUserDto);
+        User registeredUser = authenticationService.createUser(registerRequest);
         String token = jwtService.generateToken(registeredUser);
-        RegisterResponse registerResponse = new RegisterResponse(registeredUser.getUsername(), token);
-        return ResponseEntity.ok(registerResponse);
+        AuthenticationResponse authenticationResponse = new AuthenticationResponse(registeredUser.getUsername(), token);
+        return ResponseEntity.ok(authenticationResponse);
     }   
+    
+    @PostMapping("/login")
+    public ResponseEntity<AuthenticationResponse> login(@RequestBody LoginRequest loginRequest) {
+        Optional<User> user = authenticationService.checkPassword(loginRequest);
+        
+        if (user.isEmpty())
+            return badRequestResponse();
+            
+        String token = jwtService.generateToken(user.get());
+        AuthenticationResponse authenticationResponse = new AuthenticationResponse(user.get().getUsername(), token);
+        return ResponseEntity.ok(authenticationResponse);
+    }
+    
+    private ResponseEntity badRequestResponse() {
+        return ResponseEntity.badRequest().build();
+    }
 }

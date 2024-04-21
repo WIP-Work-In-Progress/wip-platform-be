@@ -1,5 +1,7 @@
 package pl.wip.wipplatformbe.controllers;
 
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import pl.wip.wipplatformbe.models.Test;
 import pl.wip.wipplatformbe.requests.TestRequest;
@@ -39,5 +41,19 @@ public class HelloController {
     @PatchMapping("/test/{id}")
     void updateTest(@PathVariable String id, TestRequest test) {
         testService.updateTest(id, test);
+    }
+    
+    @GetMapping("/test/auth/required")
+    public ResponseEntity<String> testAuthRequired() {
+        return ResponseEntity.ok("User logged in");
+    }
+
+    @GetMapping("/test/auth/optional")
+    public ResponseEntity<String> testAuthOptional(Authentication authentication) {
+        if (authentication == null)
+            return ResponseEntity.ok("User not logged in, but path is not protected");
+        
+        String responseMessage = "User logged in, username: " + authentication.getName();
+        return ResponseEntity.ok(responseMessage);
     }
 }

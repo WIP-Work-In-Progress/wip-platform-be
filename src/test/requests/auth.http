@@ -5,3 +5,28 @@ Content-Type: application/json
   "username": "Test",
   "password": "Pa$$w0rd"
 }
+
+###
+
+POST http://localhost:8080/auth/login
+Content-Type: application/json
+
+{
+  "username": "Test",
+  "password": "Pa$$w0rd"
+}
+
+###
+
+GET http://localhost:8080/test/auth/required
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0IiwiaWF0IjoxNzEzNzA1NjIxLCJleHAiOjE3MTM3MDkyMjF9.yLcsYLeqslD6tWUOAbqHFeQSD6JnD8f9gOZkGVG5V2A
+
+###
+
+GET http://localhost:8080/test/auth/optional
+
+###
+
+GET http://localhost:8080/test/auth/optional
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0IiwiaWF0IjoxNzEzNzA1NjIxLCJleHAiOjE3MTM3MDkyMjF9.yLcsYLeqslD6tWUOAbqHFeQSD6JnD8f9gOZkGVG5V2A
