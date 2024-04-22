@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import pl.wip.wipplatformbe.validation.UniqueEmail;
 import pl.wip.wipplatformbe.validation.UniqueUsername;
+import pl.wip.wipplatformbe.validation.ValidPassword;
 
 public class RegisterRequest {
     @NotBlank(message = "Email is required")
@@ -18,7 +19,7 @@ public class RegisterRequest {
     private String username;
 
     @NotBlank(message = "Password is required")
-    @Size(min = 6, message = "Password must be at least 6 characters long")
+    @ValidPassword
     private String password;
 
     public String getEmail() {
