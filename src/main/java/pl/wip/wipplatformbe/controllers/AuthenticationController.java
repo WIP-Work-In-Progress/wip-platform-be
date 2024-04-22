@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.wip.wipplatformbe.models.User;
-import pl.wip.wipplatformbe.requests.LoginRequest;
-import pl.wip.wipplatformbe.requests.RegisterRequest;
-import pl.wip.wipplatformbe.responses.AuthenticationResponse;
+import pl.wip.wipplatformbe.objects.requests.LoginRequest;
+import pl.wip.wipplatformbe.objects.requests.RegisterRequest;
+import pl.wip.wipplatformbe.objects.responses.AuthenticationResponse;
 import pl.wip.wipplatformbe.services.AuthenticationService;
 import pl.wip.wipplatformbe.services.JwtService;
 
