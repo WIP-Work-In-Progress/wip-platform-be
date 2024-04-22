@@ -4,12 +4,14 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 import pl.wip.wipplatformbe.enums.Badge;
 import pl.wip.wipplatformbe.enums.Role;
 import pl.wip.wipplatformbe.enums.UserStatus;
 //import org.springframework.security:spring-security-crypto
 //import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+@Document
 public class User {
 
     @Id
@@ -20,8 +22,8 @@ public class User {
     private String username;
     private String firstName;
     private String lastName;
-    public List<Role> role;
-    public List<Badge> badges;
+    private List<Role> role;
+    private List<Badge> badges;
     private String description;
     private Date createdAt;
     private UserStatus status;

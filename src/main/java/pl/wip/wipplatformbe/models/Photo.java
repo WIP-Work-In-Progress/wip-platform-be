@@ -1,8 +1,8 @@
 package pl.wip.wipplatformbe.models;
 
 public class Photo {
-    public String publicId;
-    public String url;
+    private String publicId;
+    private String url;
 
     public Photo(String publicId, String url) {
         this.publicId = publicId;
