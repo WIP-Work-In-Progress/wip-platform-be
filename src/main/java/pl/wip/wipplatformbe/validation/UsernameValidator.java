@@ -7,8 +7,11 @@ import pl.wip.wipplatformbe.services.UserService;
 
 public class UsernameValidator implements ConstraintValidator<UniqueUsername, String> {
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
+
+    public UsernameValidator(UserService userService) {
+        this.userService = userService;
+    }
 
     @Override
     public void initialize(UniqueUsername constraintAnnotation) {
