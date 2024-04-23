@@ -4,8 +4,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import pl.wip.wipplatformbe.models.User;
 import pl.wip.wipplatformbe.repositories.UserRepository;
-import pl.wip.wipplatformbe.requests.LoginRequest;
-import pl.wip.wipplatformbe.requests.RegisterRequest;
+import pl.wip.wipplatformbe.objects.requests.LoginRequest;
+import pl.wip.wipplatformbe.objects.requests.RegisterRequest;
 
 import java.util.Optional;
 
