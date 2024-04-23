@@ -26,7 +26,7 @@ More on how to keep the code clean: https://gist.github.com/wojteklu/73c6914cc44
 
 We use the following project structure:
 
-![Project structure](https://github.com/WIP-Work-In-Progress/wip-platform-be/assets/116646363/90ff3734-8938-46a3-8000-f20eeaaceaab)
+![Project Structure](https://github.com/WIP-Work-In-Progress/wip-platform-be/assets/116646363/f7f273dc-9888-4580-8b4e-63e0ae42687b)
 
 ## Contributing
 	
