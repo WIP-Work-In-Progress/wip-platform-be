@@ -4,7 +4,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import pl.wip.wipplatformbe.models.Test;
-import pl.wip.wipplatformbe.objects.requests.TestRequest;
+import pl.wip.wipplatformbe.dto.requests.TestRequest;
 import pl.wip.wipplatformbe.services.TestService;
 
 import java.util.List;

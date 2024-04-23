@@ -1,4 +1,4 @@
-package pl.wip.wipplatformbe.objects.requests;
+package pl.wip.wipplatformbe.dto.requests;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

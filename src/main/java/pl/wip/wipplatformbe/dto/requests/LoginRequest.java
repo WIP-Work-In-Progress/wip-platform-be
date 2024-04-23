@@ -1,4 +1,4 @@
-package pl.wip.wipplatformbe.objects.requests;
+package pl.wip.wipplatformbe.dto.requests;
 
 public class LoginRequest {
     private String email;

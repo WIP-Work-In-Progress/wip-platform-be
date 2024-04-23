@@ -3,7 +3,7 @@ package pl.wip.wipplatformbe.services;
 import org.springframework.stereotype.Service;
 import pl.wip.wipplatformbe.models.Test;
 import pl.wip.wipplatformbe.repositories.TestRepository;
-import pl.wip.wipplatformbe.objects.requests.TestRequest;
+import pl.wip.wipplatformbe.dto.requests.TestRequest;
 
 import java.util.List;
 
