@@ -1,13 +1,12 @@
-package pl.wip.wipplatformbe.requests.base;
+package pl.wip.wipplatformbe.objects.requests;
 
-public abstract class AuthenticationRequest {
+public class LoginRequest {
     private String email;
     private String password;
 
     public String getEmail() {
         return email;
     }
-
     public String getPassword() {
         return password;
     }
