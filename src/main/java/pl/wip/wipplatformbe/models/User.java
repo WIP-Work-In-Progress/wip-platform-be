@@ -8,15 +8,13 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import pl.wip.wipplatformbe.enums.Badge;
 import pl.wip.wipplatformbe.enums.Role;
 import pl.wip.wipplatformbe.enums.UserStatus;
-//import org.springframework.security:spring-security-crypto
-//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-@Document
+@Document("users")
 public class User {
 
     @Id
     private String id;
-    private String psswrdHashed;
+    private String password;
     private String email;
     private Photo profilePicture;
     private String username;
@@ -34,10 +32,9 @@ public class User {
 
     public User() {}
 
-    // not sure about profilePicture
     public User(String id, String password, String email, Photo profilePicture, String username, String firstName, String lastName, List<Role> role, List<Badge> badges, String description, Date createdAt, UserStatus status) {
         this.id = id;
-        this.psswrdHashed = password;
+        this.password = password;
         this.email = email;
         this.profilePicture = profilePicture;
         this.username = username;

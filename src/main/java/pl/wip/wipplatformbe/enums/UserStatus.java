@@ -4,5 +4,5 @@ public enum UserStatus {
     BLACKLISTED,
     ACTIVE,
     BANNED,
-    DELETED
+    DELETING
 }
