@@ -5,23 +5,47 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import pl.wip.wipplatformbe.enums.Role;
+import pl.wip.wipplatformbe.enums.UserStatus;
+import pl.wip.wipplatformbe.enums.Badge;
 
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
-@Document(collection = "user")
+@Document(collection = "users")
 public class User implements UserDetails {
     @Id
     private String id;
     private String password;
     private String email;
+    private Photo profilePicture;
     private String username;
     private String firstName;
     private String lastName;
     private List<Role> roles;
+    private List<Badge> badges;
+    private String description;
     private Date createdAt;
+    private UserStatus status;
+
+    public User() {}
+
+    public User(String id, String password, String email, Photo profilePicture, String username, String firstName, String lastName, List<Role> roles, List<Badge> badges, String description, Date createdAt, UserStatus status) {
+        this.id = id;
+        this.password = password;
+        this.email = email;
+        this.profilePicture = profilePicture;
+        this.username = username;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.roles = roles;
+        this.badges = badges;
+        this.description = description;
+        this.createdAt = createdAt;
+        this.status = status;
+    }
     
+    // TODO: remove this constructor when it's no longer needed
     public User(String username, String email, String password) {
         this.username = username;
         this.email = email;
@@ -32,6 +56,14 @@ public class User implements UserDetails {
     public String getId() {
         return id;
     }
+  
+    public String getUsername() {
+        return username;
+    }
+    
+    public String getEmail() {
+        return email;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -41,14 +73,6 @@ public class User implements UserDetails {
     @Override
     public String getPassword() {
         return password;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-    
-    public String getEmail() {
-        return email;
     }
 
     @Override
@@ -69,37 +93,5 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-    
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public Date getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
     }
 }
