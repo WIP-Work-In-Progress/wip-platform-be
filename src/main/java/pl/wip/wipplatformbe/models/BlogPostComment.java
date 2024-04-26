@@ -2,6 +2,7 @@ package pl.wip.wipplatformbe.models;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import pl.wip.wipplatformbe.dto.responses.BlogPostCommentDto;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -17,10 +18,10 @@ public class BlogPostComment {
     private String content;
     private final List<UserReaction> reactions;
     
-    public BlogPostComment(String userId, LocalDateTime createdAt, String content) {
+    public BlogPostComment(String userId, String content) {
         this.userId = userId;
-        this.createdAt = createdAt;
-        this.editedAt = createdAt;
+        this.createdAt = LocalDateTime.now();
+        this.editedAt = LocalDateTime.now();
         this.content = content;
         this.reactions = new ArrayList<>();
     }
@@ -55,5 +56,9 @@ public class BlogPostComment {
 
     public List<UserReaction> getReactions() {
         return reactions;
+    }
+    
+    public BlogPostCommentDto toBlogPostCommentDto() {
+        return new BlogPostCommentDto(id, userId, createdAt, editedAt, content, reactions);
     }
 }
