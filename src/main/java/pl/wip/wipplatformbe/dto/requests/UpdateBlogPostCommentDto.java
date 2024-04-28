@@ -1,4 +1,9 @@
 package pl.wip.wipplatformbe.dto.requests;
 
-public record UpdateBlogPostCommentDto(String content) {
+public class UpdateBlogPostCommentDto {
+    private String content;
+
+    public String getContent() {
+        return content;
+    }
 }

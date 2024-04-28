@@ -12,11 +12,11 @@ import java.util.List;
 public class BlogPostComment {
     @Id
     private String id;
-    private final String userId;
-    private final LocalDateTime createdAt;
+    private String userId;
+    private LocalDateTime createdAt;
     private LocalDateTime editedAt;
     private String content;
-    private final List<UserReaction> reactions;
+    private List<UserReaction> reactions;
     
     public BlogPostComment(String userId, String content) {
         this.userId = userId;
@@ -34,8 +34,16 @@ public class BlogPostComment {
         return userId;
     }
 
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
     public LocalDateTime getCreatedAt() {
         return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 
     public LocalDateTime getEditedAt() {
@@ -56,6 +64,10 @@ public class BlogPostComment {
 
     public List<UserReaction> getReactions() {
         return reactions;
+    }
+
+    public void setReactions(List<UserReaction> reactions) {
+        this.reactions = reactions;
     }
     
     public BlogPostCommentDto toBlogPostCommentDto() {

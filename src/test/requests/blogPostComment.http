@@ -1,0 +1,30 @@
+GET http://localhost:8080/blog/posts/comments/662e33d8c8dfb0302c3b4c01
+Content-Type: application/json
+
+###
+
+POST http://localhost:8080/blog/posts/comments
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoiVGVzdCIsImlhdCI6MTcxNDMwMjE2MSwiZXhwIjoxNzE0MzA1NzYxfQ.kkhISKOIRHgCdyYOwa2Om8o18TEGVP3ZXxyqVaKb_So
+Content-Type: application/json
+
+{
+  "content": "Test comment",
+  "blogPostId": "test-id"
+}
+
+###
+
+PATCH http://localhost:8080/blog/posts/comments/662e33d8c8dfb0302c3b4c01/edit
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoiVGVzdCIsImlhdCI6MTcxNDMwMjE2MSwiZXhwIjoxNzE0MzA1NzYxfQ.kkhISKOIRHgCdyYOwa2Om8o18TEGVP3ZXxyqVaKb_So
+Content-Type: application/json
+
+{
+  "content": "Test comment updated"
+}
+
+###
+
+DELETE http://localhost:8080/blog/posts/comments/662e33d8c8dfb0302c3b4c01/delete
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoiVGVzdCIsImlhdCI6MTcxNDMwMjE2MSwiZXhwIjoxNzE0MzA1NzYxfQ.kkhISKOIRHgCdyYOwa2Om8o18TEGVP3ZXxyqVaKb_So
+Content-Type: application/json
+

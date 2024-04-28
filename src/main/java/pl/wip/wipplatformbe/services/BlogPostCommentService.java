@@ -19,9 +19,13 @@ public class BlogPostCommentService {
     }
     
     // TODO: get all by BlogPost id
-    
+
+    public Optional<BlogPostComment> getById(String id) {
+        return repository.findById(id);
+    }
+
     public BlogPostCommentDto create(CreateBlogPostCommentDto dto, String userId) {
-        BlogPostComment blogPostComment = new BlogPostComment(userId, dto.content());
+        BlogPostComment blogPostComment = new BlogPostComment(userId, dto.getContent());
         repository.save(blogPostComment);
         
         // TODO: update BlogPost comments array to include new comment's id
@@ -29,11 +33,11 @@ public class BlogPostCommentService {
         return blogPostComment.toBlogPostCommentDto();
     }
     
-    public Optional<BlogPostCommentDto> update(BlogPostComment comment, UpdateBlogPostCommentDto dto) {
+    public BlogPostCommentDto update(BlogPostComment comment, UpdateBlogPostCommentDto dto) {
         comment.setEditedAt(LocalDateTime.now());
-        comment.setContent(dto.content());
+        comment.setContent(dto.getContent());
         repository.save(comment);
-        return Optional.of(comment.toBlogPostCommentDto());
+        return comment.toBlogPostCommentDto();
     }
     
     public void delete(BlogPostComment comment) {
