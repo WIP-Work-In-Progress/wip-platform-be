@@ -70,7 +70,7 @@ public class BlogPostComment {
         this.reactions = reactions;
     }
     
-    public BlogPostCommentDto toBlogPostCommentDto() {
-        return new BlogPostCommentDto(id, userId, createdAt, editedAt, content, reactions);
+    public BlogPostCommentDto toBlogPostCommentDto(String blogPostId) {
+        return new BlogPostCommentDto(id, userId, blogPostId, createdAt, editedAt, content, reactions);
     }
 }

@@ -30,14 +30,15 @@ public class BlogPostCommentService {
         
         // TODO: update BlogPost comments array to include new comment's id
         
-        return blogPostComment.toBlogPostCommentDto();
+        return blogPostComment.toBlogPostCommentDto(dto.getBlogPostId());
     }
     
-    public BlogPostCommentDto update(BlogPostComment comment, UpdateBlogPostCommentDto dto) {
+    public BlogPostCommentDto update(BlogPostComment comment, UpdateBlogPostCommentDto dto,
+                                     String blogPostId) {
         comment.setEditedAt(LocalDateTime.now());
         comment.setContent(dto.getContent());
         repository.save(comment);
-        return comment.toBlogPostCommentDto();
+        return comment.toBlogPostCommentDto(blogPostId);
     }
     
     public void delete(BlogPostComment comment) {

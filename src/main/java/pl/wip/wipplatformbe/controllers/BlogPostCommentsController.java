@@ -28,10 +28,11 @@ public class BlogPostCommentsController {
     public ResponseEntity<BlogPostCommentDto> getComment(@PathVariable String commentId) {
         Optional<BlogPostComment> optionalComment = blogPostCommentsService.getById(commentId);
 
-        return optionalComment.map(blogPostComment ->
-                ResponseEntity.ok(blogPostComment.toBlogPostCommentDto()))
-                .orElseGet(() -> ResponseEntity.notFound().build());
+        if (optionalComment.isEmpty())
+            return ResponseEntity.notFound().build();
 
+        String blogPostId = "Sample id"; // TODO: Retrieve actual blog post id
+        return ResponseEntity.ok(optionalComment.get().toBlogPostCommentDto(blogPostId));
     }
 
     @PostMapping("/comments") // To discuss, should this be /{postId}/comments?
@@ -62,7 +63,8 @@ public class BlogPostCommentsController {
             return ResponseEntity.status(403).build();
 
         BlogPostComment comment = optionalComment.get();
-        BlogPostCommentDto updatedComment = blogPostCommentsService.update(comment, dto);
+        String blogPostId = "Sample id"; // TODO: Retrieve actual blog post id
+        BlogPostCommentDto updatedComment = blogPostCommentsService.update(comment, dto, blogPostId);
         return ResponseEntity.ok(updatedComment);
     }
 
