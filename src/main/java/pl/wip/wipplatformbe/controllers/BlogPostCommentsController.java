@@ -26,7 +26,7 @@ public class BlogPostCommentsController {
 
     @GetMapping("/comments/{commentId}")
     public ResponseEntity<BlogPostCommentDto> getComment(@PathVariable String commentId) {
-        Optional<BlogPostComment> optionalComment = blogPostCommentsService.getById(commentId);
+        Optional<BlogPostComment> optionalComment = blogPostCommentsService.getBlogPostCommentById(commentId);
 
         if (optionalComment.isEmpty())
             return ResponseEntity.notFound().build();
@@ -42,7 +42,7 @@ public class BlogPostCommentsController {
         // TODO: Check if blog post exists, and add new comment to it, whether here or in service
 
         String userId = ((User) authentication.getPrincipal()).getId(); // Maybe use author username rather than id?
-        BlogPostCommentDto comment = blogPostCommentsService.create(dto, userId);
+        BlogPostCommentDto comment = blogPostCommentsService.createBlogPostComment(dto, userId);
         return ResponseEntity
                 .status(201)
                 .header("Location", request.getRequestURL() + "/" + comment.id())
@@ -54,7 +54,7 @@ public class BlogPostCommentsController {
                                                             @PathVariable String commentId,
                                                             @RequestBody UpdateBlogPostCommentDto dto
                                                             ) {
-        Optional<BlogPostComment> optionalComment = blogPostCommentsService.getById(commentId);
+        Optional<BlogPostComment> optionalComment = blogPostCommentsService.getBlogPostCommentById(commentId);
 
         if (optionalComment.isEmpty())
             return ResponseEntity.notFound().build();
@@ -64,14 +64,14 @@ public class BlogPostCommentsController {
 
         BlogPostComment comment = optionalComment.get();
         String blogPostId = "Sample id"; // TODO: Retrieve actual blog post id
-        BlogPostCommentDto updatedComment = blogPostCommentsService.update(comment, dto, blogPostId);
+        BlogPostCommentDto updatedComment = blogPostCommentsService.editBlogPostComment(comment, dto, blogPostId);
         return ResponseEntity.ok(updatedComment);
     }
 
     @DeleteMapping("/comments/{commentId}/delete")
     public ResponseEntity<Void> deleteComment(Authentication authentication,
                                              @PathVariable String commentId) {
-        Optional<BlogPostComment> optionalComment = blogPostCommentsService.getById(commentId);
+        Optional<BlogPostComment> optionalComment = blogPostCommentsService.getBlogPostCommentById(commentId);
 
         if (optionalComment.isEmpty())
             return ResponseEntity.notFound().build();
@@ -81,7 +81,7 @@ public class BlogPostCommentsController {
         if (!comment.getUserId().equals(((User) authentication.getPrincipal()).getId()))
             return ResponseEntity.status(403).build();
 
-        blogPostCommentsService.delete(comment);
+        blogPostCommentsService.deleteBlogPostComment(comment);
         return ResponseEntity.noContent().build();
     }
 }

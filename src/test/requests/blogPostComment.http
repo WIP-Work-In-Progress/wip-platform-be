@@ -1,10 +1,10 @@
-GET http://localhost:8080/blog/posts/comments/662e33d8c8dfb0302c3b4c01
+GET http://localhost:8080/blog/posts/comments/662f59cd01e1c550d26c34d4
 Content-Type: application/json
 
 ###
 
 POST http://localhost:8080/blog/posts/comments
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoiVGVzdCIsImlhdCI6MTcxNDMwMjE2MSwiZXhwIjoxNzE0MzA1NzYxfQ.kkhISKOIRHgCdyYOwa2Om8o18TEGVP3ZXxyqVaKb_So
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoiVGVzdCIsImlhdCI6MTcxNDM3OTE2MCwiZXhwIjoxNzE0MzgyNzYwfQ.N1m4JReR3CKuAO4-bFXVdgOvG-ezSrY-fuCqNWCdjsg
 Content-Type: application/json
 
 {
@@ -14,8 +14,8 @@ Content-Type: application/json
 
 ###
 
-PATCH http://localhost:8080/blog/posts/comments/662e33d8c8dfb0302c3b4c01/edit
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoiVGVzdCIsImlhdCI6MTcxNDMwMjE2MSwiZXhwIjoxNzE0MzA1NzYxfQ.kkhISKOIRHgCdyYOwa2Om8o18TEGVP3ZXxyqVaKb_So
+PATCH http://localhost:8080/blog/posts/comments/662f59cd01e1c550d26c34d4/edit
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoiVGVzdCIsImlhdCI6MTcxNDM3OTE2MCwiZXhwIjoxNzE0MzgyNzYwfQ.N1m4JReR3CKuAO4-bFXVdgOvG-ezSrY-fuCqNWCdjsg
 Content-Type: application/json
 
 {
@@ -24,7 +24,7 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:8080/blog/posts/comments/662e33d8c8dfb0302c3b4c01/delete
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoiVGVzdCIsImlhdCI6MTcxNDMwMjE2MSwiZXhwIjoxNzE0MzA1NzYxfQ.kkhISKOIRHgCdyYOwa2Om8o18TEGVP3ZXxyqVaKb_So
+DELETE http://localhost:8080/blog/posts/comments/662f59cd01e1c550d26c34d4/delete
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoiVGVzdCIsImlhdCI6MTcxNDM3OTE2MCwiZXhwIjoxNzE0MzgyNzYwfQ.N1m4JReR3CKuAO4-bFXVdgOvG-ezSrY-fuCqNWCdjsg
 Content-Type: application/json
 
