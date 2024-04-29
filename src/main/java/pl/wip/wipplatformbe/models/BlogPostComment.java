@@ -20,8 +20,9 @@ public class BlogPostComment {
     
     public BlogPostComment(String userId, String content) {
         this.userId = userId;
-        this.createdAt = LocalDateTime.now();
-        this.editedAt = LocalDateTime.now();
+        LocalDateTime currentTime = LocalDateTime.now();
+        this.createdAt = currentTime;
+        this.editedAt = currentTime;
         this.content = content;
         this.reactions = new ArrayList<>();
     }
