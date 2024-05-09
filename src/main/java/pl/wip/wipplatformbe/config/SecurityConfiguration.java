@@ -40,6 +40,10 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests((authorize) -> {
                     authorize.requestMatchers("/auth/**").permitAll();
                     authorize.requestMatchers("/test/auth/optional").permitAll();
+                    authorize.requestMatchers(HttpMethod.POST, "/blog/posts/comments").authenticated();
+                    authorize.requestMatchers(HttpMethod.PATCH, "/blog/posts/comments/**").authenticated();
+                    authorize.requestMatchers(HttpMethod.DELETE, "/blog/posts/comments/**").authenticated();
+                    authorize.requestMatchers(HttpMethod.GET, "/blog/posts/comments/**").permitAll();
                     authorize.requestMatchers("/test/auth/admin").hasAnyAuthority("ROLE_ADMIN");
                     authorize.requestMatchers("/test/auth/user").hasAnyAuthority("ROLE_USER");
                     authorize.requestMatchers(HttpMethod.OPTIONS, "/**").permitAll();
